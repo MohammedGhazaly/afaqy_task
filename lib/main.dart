@@ -1,9 +1,11 @@
-import 'package:afaqay_task/shared/services/api_service.dart';
-import 'package:afaqay_task/shared/services/local_db_service.dart';
+import 'package:afaqay_task/controllers/login_controller.dart';
+import 'package:afaqay_task/shared/services/remote/api_service.dart';
+import 'package:afaqay_task/shared/services/local/local_db_service.dart';
 import 'package:afaqay_task/views/login/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,7 +15,18 @@ void main() async {
       statusBarIconBrightness: Brightness.dark));
   await LocalDbService.init();
 
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) {
+            return LoginController();
+          },
+        )
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

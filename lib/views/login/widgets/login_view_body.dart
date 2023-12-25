@@ -1,35 +1,14 @@
+import 'package:afaqay_task/controllers/login_controller.dart';
 import 'package:afaqay_task/shared/utils/app_assets.dart';
 import 'package:afaqay_task/views/login/widgets/custom_button.dart';
 import 'package:afaqay_task/views/login/widgets/custom_text_field.dart';
+import 'package:afaqay_task/views/login/widgets/login_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
-class LoginViewBody extends StatefulWidget {
+class LoginViewBody extends StatelessWidget {
   const LoginViewBody({super.key});
-
-  @override
-  State<LoginViewBody> createState() => _LoginViewBodyState();
-}
-
-class _LoginViewBodyState extends State<LoginViewBody> {
-  late final TextEditingController userNameController;
-  late final TextEditingController passwordController;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    userNameController = TextEditingController();
-    passwordController = TextEditingController();
-  }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    userNameController.dispose();
-    passwordController.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,39 +46,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               SizedBox(
                 height: 16,
               ),
-              CustomTextField(
-                  hintText: "اسم المستخدم",
-                  isObsucre: false,
-                  textEditingController: userNameController),
-              SizedBox(
-                height: 16,
-              ),
-              CustomTextField(
-                  hintText: "الرقم السري",
-                  isObsucre: true,
-                  textEditingController: passwordController),
-              SizedBox(
-                height: 32,
-              ),
-              Row(
-                children: [
-                  Text("تغير المضيف"),
-                ],
-              ),
-              SizedBox(
-                height: 125.h,
-              ),
-              SizedBox(
-                width: double.infinity,
-                height: 40.h,
-                child: CustomButton(
-                  text: "تسجيل الدخول",
-                  onPressedFunction: () {},
-                ),
-              ),
-              SizedBox(
-                height: 50.h,
-              ),
+              LoginForm(),
             ],
           ),
         ),
