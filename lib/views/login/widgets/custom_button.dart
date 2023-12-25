@@ -1,3 +1,4 @@
+import 'package:afaqay_task/shared/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
@@ -14,14 +15,11 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(4),
-        ),
-        foregroundColor: Colors.white,
-        backgroundColor: Color(
-          0xFF0D47A1,
-        ),
-      ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(4),
+          ),
+          foregroundColor: Colors.white,
+          backgroundColor: AppColors.darkBlue),
       onPressed: onPressedFunction,
       child: isLogging == true
           ? Center(

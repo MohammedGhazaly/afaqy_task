@@ -1,11 +1,7 @@
-import 'package:afaqay_task/controllers/login_controller.dart';
 import 'package:afaqay_task/shared/utils/app_assets.dart';
-import 'package:afaqay_task/views/login/widgets/custom_button.dart';
-import 'package:afaqay_task/views/login/widgets/custom_text_field.dart';
 import 'package:afaqay_task/views/login/widgets/login_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:provider/provider.dart';
 
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({super.key});

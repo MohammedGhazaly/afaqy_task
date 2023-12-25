@@ -1,4 +1,4 @@
-class Data {
+class UserDataModel {
   String? userName;
   String? loginDate;
   num? languages;
@@ -42,7 +42,7 @@ class Data {
   bool? exportToExcel;
   Null? computerName;
 
-  Data(
+  UserDataModel(
       {this.userName,
       this.loginDate,
       this.languages,
@@ -86,7 +86,7 @@ class Data {
       this.exportToExcel,
       this.computerName});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  UserDataModel.fromJson(Map<String, dynamic> json) {
     userName = json['userName'];
     loginDate = json['loginDate'];
     languages = json['languages'];

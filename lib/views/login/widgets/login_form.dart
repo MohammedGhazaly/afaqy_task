@@ -1,4 +1,7 @@
 import 'package:afaqay_task/controllers/login_controller.dart';
+import 'package:afaqay_task/shared/services/local/app_shared_pref_keys.dart';
+import 'package:afaqay_task/shared/services/local/local_db_service.dart';
+import 'package:afaqay_task/views/invoice/invoice_view.dart';
 import 'package:afaqay_task/views/login/widgets/custom_button.dart';
 import 'package:afaqay_task/views/login/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
@@ -67,10 +70,28 @@ class _LoginFormState extends State<LoginForm> {
                 isLogging: loginController.isLogging,
                 text: "تسجيل الدخول",
                 onPressedFunction: () async {
-                  await loginController.login(
-                      userName: userNameController.text,
-                      password: passwordController.text,
-                      context: context);
+                  try {
+                    await loginController.login(
+                        userName: userNameController.text,
+                        password: passwordController.text,
+                        context: context);
+                    if (!context.mounted) return;
+
+                    Navigator.pushNamed(
+                      context,
+                      InvoiceView.routeName,
+                      arguments: {
+                        "token": LocalDbService.getData(
+                            key: AppSharedPrefKeys.token),
+                        "branch_name": LocalDbService.getData(
+                            key: AppSharedPrefKeys.branchName),
+                        "company_name": LocalDbService.getData(
+                            key: AppSharedPrefKeys.companyName),
+                      },
+                    );
+                  } catch (e) {
+                    // TODO
+                  }
                 },
               ),
             );

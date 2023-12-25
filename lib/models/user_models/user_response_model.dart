@@ -1,7 +1,7 @@
 import 'package:afaqay_task/models/user_models/user_data_model.dart';
 
 class UserResponseModel {
-  Data? data;
+  UserDataModel? data;
   num? status;
   String? message;
   bool? isSuccess;
@@ -11,7 +11,8 @@ class UserResponseModel {
       {this.data, this.status, this.message, this.isSuccess, this.token});
 
   UserResponseModel.fromJson(Map<String, dynamic> json) {
-    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
+    data =
+        json['data'] != null ? new UserDataModel.fromJson(json['data']) : null;
     status = json['status'];
     message = json['message'];
     isSuccess = json['isSuccess'];

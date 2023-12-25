@@ -1,6 +1,7 @@
 import 'package:afaqay_task/controllers/login_controller.dart';
 import 'package:afaqay_task/shared/services/remote/api_service.dart';
 import 'package:afaqay_task/shared/services/local/local_db_service.dart';
+import 'package:afaqay_task/views/invoice/invoice_view.dart';
 import 'package:afaqay_task/views/login/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
             initialRoute: LoginView.routeName,
             routes: {
               LoginView.routeName: (context) => const LoginView(),
+              InvoiceView.routeName: (context) => const InvoiceView(),
             },
           );
         });
